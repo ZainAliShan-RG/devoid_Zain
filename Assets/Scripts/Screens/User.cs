@@ -23,7 +23,7 @@ namespace Screens
         public void Initialize(UserData userData, Action<string> onDetailButtonClick)
         {
             _assetController = ServiceLocator.Instance.Get<AssetController.AssetController>();  // Get the AssetController instance.
-            usernameText.text = userData.first + " " + userData.last;          // Set the username text.
+            usernameText.text = userData.firstName + " " + userData.lastName;          // Set the username text.
             emailText.text = userData.email;                                   // Set the email text.
             phoneText.text = userData.phone;                                   // Set the phone text.
             _onDetailButtonClick = onDetailButtonClick;                        // Set the action to be triggered on detail button click.

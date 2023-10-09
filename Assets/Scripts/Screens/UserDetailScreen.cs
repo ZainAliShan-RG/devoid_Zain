@@ -30,7 +30,7 @@ namespace Screens
             if (Properties != null)
             {
                 // Format and set the user's name and email in the UI text fields
-                userNameDisplay.text = $"{Properties.first} {Properties.last}";
+                userNameDisplay.text = $"{Properties.firstName} {Properties.lastName}";
                 userEmailDisplay.text = Properties.email;
 
                 // Check if the user's image and UI Image component are not null before setting the sprite

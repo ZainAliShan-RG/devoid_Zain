@@ -21,7 +21,7 @@ namespace Screens.ScrollableUserScreen
         public GameObject userPrefab;  // Prefab for user items
         public Transform content;  // Content transform to hold user items
         [SerializeField] private string userDataUrl = "";  // URL to fetch user data
-        private readonly List<User> userCells = new List<User>();  // List to hold instantiated user items (active user list)
+        private readonly List<User> userActiveListCells = new List<User>();  // List to hold instantiated user items (active user list)
         private readonly List<User> userPool = new List<User>();  // Object pool for user objects
         [SerializeField] private Scrollbar userListScrollbar;  // Scrollbar for the user list
         private AssetController.AssetController assetController;  // Asset controller instance
@@ -111,7 +111,7 @@ namespace Screens.ScrollableUserScreen
             {
                 UserData user = userPair.Value;
                 User userInfo = GetUserObject();
-                userCells.Add(userInfo);
+                userActiveListCells.Add(userInfo);
                 userInfo.Initialize(user, ShowUserDetailScreen);
             }
         }
@@ -127,7 +127,7 @@ namespace Screens.ScrollableUserScreen
         private void CleanUpScrollWindow()
         {
             ReturnAllUserObjectsToPool();  // Return all user objects to the pool
-            userCells.Clear();  // Clear the cells list (Clears active users)
+            userActiveListCells.Clear();  // Clear the cells list (Clears active users)
             Properties.AllUsers.Clear();  // Clear the AllUsers dictionary
             userListScrollbar.value = 1f;  // Reset scrollbar value
         }
